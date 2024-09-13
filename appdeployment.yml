@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: capstone-app-deployment
+  name: HealthCareApp-deployment
   labels:
     app: healthcare-app
 spec:
@@ -15,7 +15,7 @@ spec:
         app: healthcare-app
     spec:
       containers:
-      - name: capstone-app-container
+      - name: HealthCareApp-deployment
         image: mehooman/HealthCare:v1
         ports:
         - containerPort: 8082
@@ -23,7 +23,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: healthcare-app-service
+  name: HealthCareApp-Service
 spec:
   type: NodePort
   selector:
@@ -32,4 +32,4 @@ spec:
   - protocol: TCP
     port: 8085
     targetPort: 8082
-    nodePort: 30082  # NodePort value; it will expose the service on this port
+    nodePort: 30083  # NodePort value; it will expose the service on this port
